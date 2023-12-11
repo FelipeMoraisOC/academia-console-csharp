@@ -16,7 +16,10 @@ namespace EFCore
         public ICollection<AlunoTreino> AlunosTreinos { get; set; }
 
         public ICollection<TreinoExercicio> TreinosExercicios {get; set;}
-
+        public Treino()
+        {
+            
+        }
         public Treino(int? treinoId, string nome, string descricao, string criadoPor)
         {
             TreinoId = treinoId;

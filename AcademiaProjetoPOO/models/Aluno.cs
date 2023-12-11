@@ -11,6 +11,7 @@ namespace EFCore
         public string Nome {get; set;}
         public string Sobrenome {get;set;}
         public string CPF {get; set;}
+        public int Idade {get; set;}
 
         public ICollection<AlunoPresenca> AlunoPresencas { get; } = new List<AlunoPresenca>();
         public ICollection<AlunoTreino> AlunosTreinos {get; set;}
@@ -19,18 +20,19 @@ namespace EFCore
         {
 
         }
-        public Aluno(int? alunoId, string email, string nome, string sobrenome, string cpf)
+        public Aluno(int? alunoId, string email, string nome, string sobrenome, string cpf, int idade)
         {
             AlunoId = alunoId;
             Email = email;
             Nome = nome;
             Sobrenome = sobrenome;
             CPF = cpf;
+            Idade = idade;
         }
 
         public override string ToString()
         {
-            return $"Aluno: Id={AlunoId}, E-mail={Email}, Nome={Nome}, Sobrenome={Sobrenome}, CPF={CPF}";
+            return $"Aluno: Id:{AlunoId}, Nome:{Nome}, Sobrenome:{Sobrenome}, E-mail:{Email}, CPF:{CPF}, Idade:{Idade}";
         }
     }
 }

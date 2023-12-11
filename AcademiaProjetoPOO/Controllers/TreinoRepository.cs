@@ -5,6 +5,15 @@ using EFCore;
 
 public class TreinoRepository : Repository<Treino> 
 {
+    public Treino ObterPorId(int id)
+    {
+        var treino = context.Set<Treino>()
+            .Where(a => a.TreinoId == id)
+            .Include(t => t.TreinosExercicios)
+            .ThenInclude(t => t.Exercicio)
+            .FirstOrDefault();
+        return treino;
+    }
     public new List<Treino> ObterTodos()
     {
         var treinos = context.Set<Treino>().Include(t => t.TreinosExercicios).ThenInclude(te => te.Exercicio).ToList();
@@ -21,4 +30,13 @@ public class TreinoRepository : Repository<Treino>
 
         return treinos;
     }
+    public List<Treino> ObterTodosTreinosComAlunoId(int alunoId)
+    {
+         return context.Set<Treino>().Where(e => e.AlunosTreinos.Any(te => te.AlunoId == alunoId)).ToList();
+    }
+     public List<Treino> ObterTodosTreinosSemAlunoId(int alunoId)
+    {
+         return context.Set<Treino>().Where(e => e.AlunosTreinos.All(te => te.AlunoId != alunoId)).ToList();
+    }
+    
 }

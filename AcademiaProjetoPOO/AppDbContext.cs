@@ -39,7 +39,7 @@ namespace EFCore
             try
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("Carregando...");
+                // Console.WriteLine("Carregando...");
                 Console.ResetColor();
                 
                 // modelBuilder.Entity<Usuario>().ToTable("Usuarios");

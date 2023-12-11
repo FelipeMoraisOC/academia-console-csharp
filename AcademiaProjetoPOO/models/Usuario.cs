@@ -20,6 +20,7 @@ namespace EFCore
         public Usuario(){
 
         }
+
         public Usuario(int? usuarioId, string nome, string sobrenome, string email, string senha, string cpf, UsuarioTipo usuarioTipo) 
         {
             UsuarioId = usuarioId;
@@ -33,7 +34,7 @@ namespace EFCore
 
         public override string ToString()
         {
-            return $"Aluno: Id={UsuarioId}, Nome={Nome}, Sobrenome={Sobrenome}, Senha={Email}, Materia={Senha}, CPF={CPF}";
+            return $"Id:{UsuarioId}, Nome:{Nome}, Sobrenome:{Sobrenome}, E-mail:{Email}, CPF:{CPF}, UsuarioTipo:{UsuarioTipo}";
         }
 
     }
